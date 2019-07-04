@@ -33,7 +33,7 @@ class Model():
 
   def get_action(self, state):
     with torch.no_grad():
-      avs = self.target_model(torch.Tensor(state).unsqueeze(0))
+      avs = self.target_model(state.unsqueeze(0))
       # print(avs)
       # print(avs.max(0)[1].view(1, 1))
       return avs.max(1)[1].view(1, 1)
